@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saikumar-anapuram.vercel.app/sitemap.xml
