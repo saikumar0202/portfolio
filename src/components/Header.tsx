@@ -51,7 +51,8 @@ export function Header({ active }: { active: string }) {
               {item.label}
             </a>
           ))}
-          <a href={profile.resume} className="btn btn--ghost btn--sm" target="_blank" rel="noreferrer">
+          <a href="/jarvis" className="nav__link">Jarvis</a>
+          <a href={profile.resume} className="btn btn--ghost btn--sm" target="_blank" rel="noreferrer" aria-label="Résumé (opens in a new tab)">
             Résumé
           </a>
         </nav>

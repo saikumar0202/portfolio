@@ -32,16 +32,43 @@ function SudokuVisual() {
   )
 }
 
+function JarvisVisual() {
+  return (
+    <div className="visual visual--jarvis" aria-hidden="true">
+      <div className="jarvis-visual__top">
+        <span>J.A.R.V.I.S <i>· MIND</i></span>
+        <span><b /> STANDING BY</span>
+      </div>
+      <div className="jarvis-visual__graph">
+        <span className="jarvis-visual__orbit jarvis-visual__orbit--one" />
+        <span className="jarvis-visual__orbit jarvis-visual__orbit--two" />
+        <span className="jarvis-visual__core" />
+        <span className="jarvis-visual__node jarvis-visual__node--one" />
+        <span className="jarvis-visual__node jarvis-visual__node--two" />
+        <span className="jarvis-visual__node jarvis-visual__node--three" />
+        <span className="jarvis-visual__node jarvis-visual__node--four" />
+      </div>
+      <div className="jarvis-visual__prompt"><span>›</span> Say “Jarvis” or type a command…</div>
+    </div>
+  )
+}
+
 function FeaturedCard({ p }: { p: Project }) {
   const primary = p.links?.[0]
   return (
     <article className="feature card row">
-      {p.visual === 'player' ? <PlayerVisual /> : <SudokuVisual />}
+      {p.visual === 'player' ? <PlayerVisual /> : p.visual === 'jarvis' ? <JarvisVisual /> : <SudokuVisual />}
       <div className="feature__body">
         <p className="kicker">{p.kind}</p>
         <h3 className="row__title feature__title">
           {primary ? (
-            <a href={primary.href} target="_blank" rel="noreferrer" className="stretched">
+              <a
+                href={primary.href}
+                target={primary.internal ? undefined : '_blank'}
+                rel={primary.internal ? undefined : 'noreferrer'}
+                aria-label={primary.internal ? undefined : `${p.name} (opens in a new tab)`}
+                className="stretched"
+              >
               {p.name} <ArrowUpRight />
             </a>
           ) : (
@@ -53,7 +80,7 @@ function FeaturedCard({ p }: { p: Project }) {
         {p.links && p.links.length > 1 && (
           <div className="feature__links">
             {p.links.slice(1).map((l) => (
-              <a key={l.href} href={l.href} target="_blank" rel="noreferrer" className="link-above">
+              <a key={l.href} href={l.href} target="_blank" rel="noreferrer" aria-label={`${l.label} (opens in a new tab)`} className="link-above">
                 {l.label}
               </a>
             ))}

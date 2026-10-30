@@ -8,11 +8,17 @@ import { Hero } from './components/Hero'
 import { Section } from './components/Section'
 import { Experience } from './components/Experience'
 import { Projects } from './components/Projects'
-import { Contact } from './components/Contact'
+import { Contact, SiteFooter } from './components/Contact'
+import { JarvisPage } from './components/JarvisPage'
 
 const SECTION_IDS = nav.map((n) => n.id)
 
 export default function App() {
+  if (window.location.pathname.replace(/\/$/, '') === '/jarvis') return <JarvisPage />
+  return <PortfolioPage />
+}
+
+function PortfolioPage() {
   const pageRef = useRef<HTMLDivElement>(null)
   useSpotlight(pageRef)
   useReveal()
@@ -54,6 +60,7 @@ export default function App() {
 
         <Contact />
       </main>
+      <SiteFooter />
     </div>
   )
 }

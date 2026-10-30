@@ -17,14 +17,14 @@ export const profile = {
   facts: [
     { label: 'Status', value: 'Open to roles', live: true },
     { label: 'Notice', value: 'Immediate joiner' },
-    { label: 'Location', value: 'Hyderabad · Remote' },
+    { label: 'Location', value: 'Hyderabad, India · Open to remote roles' },
     { label: 'Last role', value: 'MTS4, ThoughtSpot' },
   ],
 }
 
 export const about = [
   'I’m a frontend engineer who cares about the details between the design file and the browser — reusable components, theming, performance and the cross-browser polish that makes a product feel finished.',
-  'I’ve shipped AI product UI at ThoughtSpot, led an Angular frontend at ValueLabs, and started out full-stack with React and Spring Boot. Outside work I build my own products — a music streaming web app and an offline Sudoku app for Android.',
+  'I’ve shipped AI product UI at ThoughtSpot, led an Angular frontend at ValueLabs, and started out full-stack with React and Spring Boot. Outside work I build my own products, including a music streaming web app.',
 ]
 
 export type Job = {
@@ -41,11 +41,11 @@ export const experience: Job[] = [
     dates: 'Nov 2024 — Aug 2026',
     role: 'Full-Stack Developer (MTS4)',
     company: 'ThoughtSpot',
-    summary: 'Frontend for SpotBuild, an AI platform that generates ThoughtSpot Embedded apps from natural-language prompts.',
+    summary: 'Built the frontend for SpotBuild, an AI platform that generates ThoughtSpot Embedded apps from natural-language prompts.',
     points: [
-      'Built the SpotBuild UI: prompt-based project generation, Git integration, publishing workflows and theme & branding customization.',
-      'Built ThoughtSpot plugins for Excel, Google Sheets, PowerPoint and Google Slides.',
-      'Built Salesforce Lightning Web Components that embed analytics into business workflows.',
+      'Built the SpotBuild frontend for prompt-based project generation, Git integration, publishing workflows, and theme and branding customization.',
+      'Built reusable React and TypeScript components with a focus on performance and responsive UX.',
+      'Built Salesforce Lightning Web Components that embed ThoughtSpot analytics in business workflows, plus add-ins for Excel, Google Sheets, PowerPoint, and Google Slides.',
     ],
     tags: ['React', 'TypeScript', 'Salesforce LWC', 'Office Add-ins', 'AI'],
   },
@@ -55,9 +55,9 @@ export const experience: Job[] = [
     company: 'ValueLabs',
     summary: 'Led frontend development of Snapfish, a consumer photo printing & gifting platform.',
     points: [
-      'Integrated Shutterfly APIs to drive dynamic content across the product.',
-      'Diagnosed and shipped performance and cross-browser fixes.',
-      'Mentored junior developers and drove code quality through reviews.',
+      'Integrated Shutterfly APIs to drive dynamic content and DOM updates across Snapfish.',
+      'Diagnosed and shipped performance and cross-browser fixes to improve the product experience.',
+      'Mentored junior developers and drove code-quality improvements through reviews.',
     ],
     tags: ['Angular', 'TypeScript', 'REST APIs', 'Performance'],
   },
@@ -67,8 +67,8 @@ export const experience: Job[] = [
     company: 'Capgemini',
     summary: 'Responsive web features for MySubaru, Subaru’s owner platform.',
     points: [
-      'Turned UX designs into production features with TomTom maps, DataTables and CropperJS.',
-      'Resolved cross-browser defects and agreed API contracts with backend teams.',
+      'Turned UX designs into responsive production features for the MySubaru owner platform, including TomTom Maps, DataTables, and CropperJS.',
+      'Integrated APIs for dynamic data, resolved cross-browser defects, and worked with backend teams on API contracts.',
     ],
     tags: ['JavaScript', 'Responsive', 'jQuery'],
   },
@@ -91,11 +91,22 @@ export type Project = {
   kind: string
   description: string
   tags: string[]
-  links?: { label: string; href: string }[]
-  visual?: 'player' | 'sudoku'
+  links?: { label: string; href: string; internal?: boolean }[]
+  visual?: 'player' | 'sudoku' | 'jarvis'
 }
 
 export const featured: Project[] = [
+  {
+    name: 'J.A.R.V.I.S',
+    kind: 'Personal project · Desktop assistant',
+    description:
+      'A voice-first desktop assistant for Windows and macOS, with a living command center and practical tools for everyday work.',
+    tags: ['Python', 'Voice AI', 'Desktop', 'MIND HUD'],
+    links: [
+      { label: 'Explore Jarvis', href: '/jarvis', internal: true },
+    ],
+    visual: 'jarvis',
+  },
   {
     name: 'EchoWave',
     kind: 'Side project · Live',
@@ -104,17 +115,9 @@ export const featured: Project[] = [
     tags: ['React', 'PWA', 'Vercel'],
     links: [
       { label: 'Live app', href: 'https://echowave-theta.vercel.app/' },
-      { label: 'Source', href: 'https://github.com/saikumar0202' },
+      { label: 'GitHub profile', href: 'https://github.com/saikumar0202' },
     ],
     visual: 'player',
-  },
-  {
-    name: 'Sudoku',
-    kind: 'Side project · Android',
-    description:
-      'A calm, fast, fully offline Sudoku app. A pure-TypeScript engine (generator, solver, difficulty grading), daily puzzles and statistics — no accounts, no backend, all data on the device.',
-    tags: ['React Native', 'Expo', 'TypeScript', 'Zustand', 'SQLite', 'Jest'],
-    visual: 'sudoku',
   },
 ]
 

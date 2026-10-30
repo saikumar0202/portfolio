@@ -14,10 +14,10 @@ export function Hero() {
           <a href="#projects" className="btn btn--primary">See my work</a>
           <a href={`mailto:${profile.email}`} className="btn btn--ghost">Say hello</a>
           <span className="socials">
-            <a className="social" href={profile.github} aria-label="GitHub" target="_blank" rel="noreferrer">
+            <a className="social" href={profile.github} aria-label="GitHub profile (opens in a new tab)" target="_blank" rel="noreferrer">
               <GitHubIcon />
             </a>
-            <a className="social" href={profile.linkedin} aria-label="LinkedIn" target="_blank" rel="noreferrer">
+            <a className="social" href={profile.linkedin} aria-label="LinkedIn profile (opens in a new tab)" target="_blank" rel="noreferrer">
               <LinkedInIcon />
             </a>
           </span>
@@ -44,7 +44,7 @@ export function Hero() {
           ))}
         </dl>
         <div className="facts__resume">
-          <a href={profile.resume} className="btn btn--primary" target="_blank" rel="noreferrer">View résumé</a>
+          <a href={profile.resume} className="btn btn--primary" target="_blank" rel="noreferrer" aria-label="View résumé (opens in a new tab)">View résumé</a>
           <a href={profile.resume} className="btn btn--ghost" download="Sai_Kumar_Anapuram_Resume.pdf">Download</a>
         </div>
       </aside>
